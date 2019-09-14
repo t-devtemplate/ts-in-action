@@ -41,7 +41,8 @@ num = undefined;
 num = null;
 
 // void 函数无返回值
-// 在js中void可以将任何表达式返回undefined, 为什么有这种语法呢? 在js中undefined关键字是变量是可以被覆盖的。
+// 在js中void是一个操作符, 可以将任何表达式返回undefined值。
+// 为什么有这种语法呢? undefined在js中不是保留字, 我们甚至可以自定义一个undefined的变量去覆盖全局的undefined。
 let noReturn = () => {};
 
 // any  任意类型。 非特殊情况不建议使用, 如果滥用那就没必要使用ts了。
