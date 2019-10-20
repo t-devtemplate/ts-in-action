@@ -31,3 +31,4 @@ let myLog: Log = log;
 myLog('1');
 
 
+export {};
