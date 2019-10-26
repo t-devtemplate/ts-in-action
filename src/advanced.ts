@@ -22,3 +22,4 @@ let foo:Foo = {
 };
 
 
+export {};

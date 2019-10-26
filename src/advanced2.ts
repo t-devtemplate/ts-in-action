@@ -58,3 +58,4 @@ function getLanguage(type:Type, x: string|number){
 }
 
 getLanguage(Type.Strong, 1);
+export {};
