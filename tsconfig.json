@@ -27,8 +27,9 @@
     // "noImplicitAny": true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
     // 在ts官方文档中, undefined和null是任何类型的子类型, 这说明它们可以赋值给其它类型。
     // 如果需要使用更严格的语法可以把它关闭掉。
-    // "strictNullChecks": false,              /* Enable strict null checks. */
-    // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
+    "strictNullChecks": false,              /* Enable strict null checks. */
+    // 函数类型之间相互赋值的兼容性
+    "strictFunctionTypes": false,           /* Enable strict checking of function types. */
     // "strictBindCallApply": true,           /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
     // "strictPropertyInitialization": true,  /* Enable strict checking of property initialization in classes. */
     // "noImplicitThis": true,                /* Raise error on 'this' expressions with an implied 'any' type. */
