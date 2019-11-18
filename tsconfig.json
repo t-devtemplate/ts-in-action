@@ -48,9 +48,11 @@
     // "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
     // 如果这个配置项开启的话, 就允许ES6模块混用commonJS模块, 编译器会生成模块系统之间的兼容代码。
     // 如果关闭这个选项, es6就需要使用import xx = require('xx');
-    "esModuleInterop": true                   /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+    // 导出使用commonJS的export = ;方式, ES6模块系统导入可以兼容commonJS这种方式
+    "esModuleInterop": true,                   /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
     // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
-    // "allowUmdGlobalAccess": true,          /* Allow accessing UMD globals from modules. */
+    // 开启允许在模块中访问UMD全局变量(库)
+    "allowUmdGlobalAccess": true,          /* Allow accessing UMD globals from modules. */
 
     /* Source Map Options */
     // "sourceRoot": "",                      /* Specify the location where debugger should locate TypeScript files instead of source locations. */
