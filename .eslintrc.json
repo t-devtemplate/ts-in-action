@@ -1,0 +1,13 @@
+{
+  "parser": "@typescript-eslint/parser", // 指定解析器
+  "plugins": ["@typescript-eslint"], // 指定插件
+  "parserOptions": {
+    "project": "./tsconfig.json" // 这里有些规则需要使用类型信息的, 直接利用tsconfig.json的类型信息。
+  },
+  "extends": [  // 具体规则在这里配置
+    "plugin:@typescript-eslint/recommended" // 使用官方推荐的recommended规则
+  ],
+  "rules": {
+    // "@typescript-eslint/no-inferrable-types": "off" // 关闭强制类型推断规则
+  }
+}
