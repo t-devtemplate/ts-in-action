@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { Form, Input, Select, Button } from 'antd';
 import { FormComponentProps } from 'antd/lib/form'
 
-import { EmployeeRequest, EmployeeResponse } from "../../interface/employee";
-import { get } from "../../utils/request";
+import { EmployeeRequest } from "../../interface/employee";
 import { GET_EMPLOYEE_URL } from "../../constants/urls";
 
 const { Option } = Select;
 
 interface Props extends FormComponentProps{
-    onDataChange(data:EmployeeResponse):void;
+    getData(data:EmployeeRequest):void;
 }
 
 class QueryForm extends Component<Props, EmployeeRequest>{
@@ -34,10 +33,7 @@ class QueryForm extends Component<Props, EmployeeRequest>{
         this.queryEmployee(this.state)
     }
     queryEmployee(param: EmployeeRequest){
-        console.log(param)
-        get(GET_EMPLOYEE_URL, param).then(response => {
-            this.props.onDataChange(response.data)
-        })
+        this.props.getData(param)
     }
     render(){
         return (

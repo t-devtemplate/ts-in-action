@@ -3,45 +3,44 @@ import { Table } from 'antd';
 
 import './index.css';
 
+
+import { connect } from 'react-redux';
+
 import QueryForm from './QueryForm';
 
 import { employeeColumns } from './colums';
 
-import { EmployeeResponse } from "../../interface/employee";
+import { EmployeeResponse, EmployeeRequest } from "../../interface/employee";
+import { getEmployee } from '../../redux/employee'
+import { bindActionCreators, Dispatch } from 'redux';
 
-interface State{
-  employee: EmployeeResponse
+
+interface Props{
+  onGetEmployee(param: EmployeeRequest): void;
+  employeeList: EmployeeResponse;
 }
 
-class Employee extends Component<{}, State> {
-  state: State = {
-    employee: undefined
-  }
-  setEmployee = (employee:EmployeeResponse)=>{
-    this.setState({
-      employee
-    })
-  }
-  getTotal = ()=>{
-    let total:number;
-    // 为空的边界处理，这样也是使用TS的好处。
-    if(typeof this.state.employee !== 'undefined'){
-      total = this.state.employee.length;
-    }else{
-      total = 0;
-    }
-    return <p>共有 {total} 名员工</p>
-  }
+class Employee extends Component<Props> {
   render() {
+    const { employeeList, onGetEmployee } = this.props;
     return (
       <>
-        <QueryForm onDataChange={this.setEmployee} />
-        {this.getTotal()}
-        <Table columns={employeeColumns} dataSource={this.state.employee} className="table" />
+        <QueryForm getData={onGetEmployee} />
+        <Table columns={employeeColumns} dataSource={employeeList} className="table" />
       </>
     )
   }
-    
 }
 
-export default Employee;
+const mapStateToProps = (state: any) => ({
+  employeeList: state.employee.employeeList
+})
+
+const mapDispatchToPros = (dispatch: Dispatch) => bindActionCreators({
+  onGetEmployee: getEmployee
+}, dispatch)
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToPros
+)(Employee);
