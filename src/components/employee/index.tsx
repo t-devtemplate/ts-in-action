@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { Table } from 'antd';
 
 import './index.css';
@@ -9,7 +9,7 @@ import { employeeColumns } from './colums';
 import { render } from 'react-dom';
 
 
-const Employee = () => {
+class Employee extends Component {
   render() {
     return (
       <>
